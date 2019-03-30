@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package bridge;
+
+import "model.proto";
+
+message FindTransactionsByAddressResponse {
+    repeated Transaction transaction = 1;
+}
+
+message FindTransactionsByTagResponse {
+    repeated Transaction transaction = 1;
+}
+
+message FindTransactionByHashResponse {
+    Transaction transaction = 1;
+}
+
+message PollEffectResponse {
+	string effect = 1;
+}
+
+message TakeEffectResponse {
+	string effect = 1;
+}

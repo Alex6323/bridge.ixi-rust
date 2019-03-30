@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package bridge;
+
+import "request.proto";
+import "response.proto";
+
+message WrapperMessage {
+
+    MessageType messageType = 1;
+
+    oneof msg {
+
+		FindTransactionsByAddressRequest findTransactionsByAddressRequest = 2;
+		FindTransactionsByTagRequest findTransactionsByTagRequest = 3;
+ 	    FindTransactionByHashRequest findTransactionByHashRequest = 4;
+ 		SubmitTransactionBuilderRequest submitTransactionBuilderRequest = 5;
+ 		SubmitTransactionBytesRequest submitTransactionBytesRequest = 6;
+ 		AddEffectListenerRequest addEffectListenerRequest = 7;
+ 		RemoveEffectListenerRequest removeEffectListenerRequest = 8;
+ 		SubmitEffectRequest submitEffectRequest = 9;
+ 		PollEffectRequest pollEffectRequest = 10;
+ 		TakeEffectRequest takeEffectRequest = 11;
+
+ 		FindTransactionsByAddressResponse findTransactionsByAddressResponse = 12;
+ 		FindTransactionsByTagResponse findTransactionsByTagResponse = 13;
+ 		FindTransactionByHashResponse findTransactionByHashResponse = 14;
+ 		PollEffectResponse pollEffectResponse = 15;
+ 		TakeEffectResponse takeEffectResponse = 16;
+
+    }
+
+    enum MessageType {
+
+		FIND_TRANSACTIONS_BY_ADDRESS_REQUEST = 0;
+        FIND_TRANSACTIONS_BY_TAG_REQUEST = 1;
+      	FIND_TRANSACTION_BY_HASH_REQUEST = 2;
+      	SUBMIT_TRANSACTION_BUILDER_REQUEST = 3;
+      	SUBMIT_TRANSACTION_BYTES_REQUEST = 4;
+      	ADD_EFFECT_LISTENER_REQUEST = 5;
+      	REMOVE_EFFECT_LISTENER_REQUEST = 6;
+        SUBMIT_EFFECT_REQUEST = 7;
+        POLL_EFFECT_REQUEST = 8;
+        TAKE_EFFECT_REQUEST = 9;
+
+        FIND_TRANSACTIONS_BY_ADDRESS_RESPONSE = 10;
+        FIND_TRANSACTIONS_BY_TAG_RESPONSE = 11;
+        FIND_TRANSACTION_BY_HASH_RESPONSE = 12;
+        POLL_EFFECT_RESPONSE = 13;
+        TAKE_EFFECT_RESPONSE = 14;
+
+    }
+
+}
